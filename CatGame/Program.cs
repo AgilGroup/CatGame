@@ -19,26 +19,111 @@
             Console.WriteLine("  \\\\|//   \\\\|///  \\\\\\|//\\\\\\|/// \\|///  \\\\\\|//  ");
             Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 
-            Console.WriteLine("A small cat is lost in a dark forest...");
-            Console.WriteLine("The cat must survive, explore, fight, heal and escape.");
-            Console.WriteLine("\nPress any key to start...");
+            Console.WriteLine("A brave little cat is trapped inside a dark forest...");
+            Console.WriteLine("Fight monsters, explore the woods, and survive!");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+
+            // ---------------- START MENU ----------------
+
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("=== Start Menu ===\n");
+            Console.ResetColor();
+
+            Console.WriteLine("[1] Start New Game");
+            Console.WriteLine("[2] Read Instructions");
+            Console.WriteLine("[3] Exit Game");
+
+            Console.Write("\nChoose an option: ");
+
+            int startChoice = int.Parse(Console.ReadLine());
+
+            if (startChoice == 2)
+            {
+                Console.Clear();
+
+                Console.WriteLine("=== Game Instructions ===\n");
+                Console.WriteLine("- Walk through the forest");
+                Console.WriteLine("- Fight monsters");
+                Console.WriteLine("- Rest to recover health");
+                Console.WriteLine("- Survive and escape the forest");
+
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey();
+            }
+            else if (startChoice == 3)
+            {
+                Console.WriteLine("Goodbye!");
+                return;
+            }
+
+            // ---------------- CAT CREATION ----------------
+
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== Cat Creation ===\n");
+            Console.ResetColor();
+
+            Console.Write("Enter your cat name: ");
+            string catName = Console.ReadLine();
+
+            Console.WriteLine("\nChoose your cat breed:");
+            Console.WriteLine("[1] Forest Cat  - Balanced");
+            Console.WriteLine("[2] Tiger Cat   - Strong Attack");
+            Console.WriteLine("[3] Persian Cat - More Health");
+            Console.WriteLine("[4] Black Cat   - Higher Luck");
+
+            Console.Write("\nBreed choice: ");
+            int breedChoice = int.Parse(Console.ReadLine());
+
+            string breed = "";
+
+            switch (breedChoice)
+            {
+                case 1:
+                    breed = "Forest Cat";
+                    break;
+
+                case 2:
+                    breed = "Tiger Cat";
+                    break;
+
+                case 3:
+                    breed = "Persian Cat";
+                    break;
+
+                case 4:
+                    breed = "Black Cat";
+                    break;
+
+                default:
+                    breed = "Unknown Cat";
+                    break;
+            }
+
+            Console.WriteLine($"\nWelcome {catName} the {breed}!");
+            Console.WriteLine("\nPress any key to start the adventure...");
+            Console.ReadKey();
+
+            // ---------------- MAIN GAME LOOP ----------------
 
             while (running)
             {
                 Console.Clear();
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("=== Forest Cat Escape ===\n");
+                Console.WriteLine("=== Main Game Menu ===\n");
                 Console.ResetColor();
 
-                Console.WriteLine("What should the cat do?\n");
-                Console.WriteLine("[1] Run");
-                Console.WriteLine("[2] Heal");
-                Console.WriteLine("[3] Fight");
-                Console.WriteLine("[4] Explore");
-                Console.WriteLine("[5] Meow");
-                Console.WriteLine("[6] Leave Game");
+                Console.WriteLine($"Cat: {catName} ({breed})\n");
+
+                Console.WriteLine("[1] Walk Through The Forest");
+                Console.WriteLine("[2] Rest");
+                Console.WriteLine("[3] Show Cat Status");
+                Console.WriteLine("[4] Exit Game");
 
                 Console.Write("\nEnter your choice: ");
 
@@ -46,7 +131,7 @@
 
                 if (!validNumber)
                 {
-                    Console.WriteLine("Please enter a number.");
+                    Console.WriteLine("Please enter a valid number.");
                     Console.ReadKey();
                     continue;
                 }
@@ -54,38 +139,96 @@
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("The cat runs quickly between the trees!");
+
+                        Console.Clear();
+
+                        Console.WriteLine("The cat walks deeper into the forest...\n");
+
+                        Random random = new Random();
+                        int eventNumber = random.Next(1, 5);
+
+                        switch (eventNumber)
+                        {
+                            case 1:
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("A wild monster appears!");
+                                Console.ResetColor();
+
+                                Console.WriteLine("\n=== Fight Menu ===");
+                                Console.WriteLine("[1] Attack Monster");
+                                Console.WriteLine("[2] Run Away");
+                                Console.WriteLine("[3] Meow To Scare Monster");
+                                Console.WriteLine("[4] Show Health");
+
+                                break;
+
+                            case 2:
+                                Console.WriteLine("The cat finds food and restores energy.");
+                                break;
+
+                            case 3:
+                                Console.WriteLine("The cat finds a safe resting place.");
+                                break;
+
+                            case 4:
+                                Console.WriteLine("Nothing happens... The forest is quiet.");
+                                break;
+                        }
+
                         break;
 
                     case 2:
-                        Console.WriteLine("The cat rests and heals its wounds.");
+
+                        Console.Clear();
+
+                        Console.WriteLine("=== Rest Menu ===\n");
+                        Console.WriteLine("The cat rests peacefully and recovers health.");
                         break;
 
                     case 3:
-                        Console.WriteLine("The cat fights a wild forest creature!");
+
+                        Console.Clear();
+
+                        Console.WriteLine("=== Cat Status ===\n");
+                        Console.WriteLine($"Name: {catName}");
+                        Console.WriteLine($"Breed: {breed}");
+                        Console.WriteLine("Health: 100");
+                        Console.WriteLine("Attack: 15");
+                        Console.WriteLine("Luck: 10");
+
                         break;
 
                     case 4:
-                        Console.WriteLine("The cat explores the forest and searches for a way out.");
-                        break;
 
-                    case 5:
-                        Console.WriteLine("Meow! The cat calls for help.");
-                        break;
-
-                    case 6:
-                        Console.WriteLine("The cat leaves the forest... Game over.");
+                        Console.WriteLine("The cat escapes the forest... Game Over.");
                         running = false;
                         break;
 
                     default:
+
                         Console.WriteLine("Invalid option.");
                         break;
                 }
 
-                Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey();
+                if (running)
+                {
+                    Console.WriteLine("\nPress any key to continue...");
+                    Console.ReadKey();
+                }
             }
+
+            // ---------------- GAME END MENU ----------------
+
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("=== Game Over ===\n");
+            Console.ResetColor();
+
+            Console.WriteLine("[1] Play Again");
+            Console.WriteLine("[2] Exit");
+
+            Console.Write("\nChoose an option: ");
         }
     }
 }
