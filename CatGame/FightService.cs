@@ -18,7 +18,7 @@ namespace CatGame
             if (enemy.Health < 0)
                 enemy.Health = 0;
 
-            Console.WriteLine($"{enemy.Name} HP: {enemy.Health}/{enemy.MaxHealth}");
+            Console.WriteLine($"{enemy.Name} HP: {enemy.Health}");
 
             // Enemy defeated
             if (enemy.Health <= 0)
@@ -36,6 +36,8 @@ namespace CatGame
         // Enemy attack turn
         public static void EnemyTurn(Cat player, Enemy enemy)
         {
+            Thread.Sleep(600);
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\n{enemy.Name} counterattacks!");
             Console.ResetColor();
@@ -53,6 +55,8 @@ namespace CatGame
                 Console.WriteLine($"{player.Name} has been defeated...");
                 Console.ResetColor();
             }
+            Console.WriteLine("\nPress any key...");
+            Console.ReadKey();
         }
 
         // Escape function
@@ -74,6 +78,7 @@ namespace CatGame
                 Console.WriteLine($"{player.Name} failed to escape!");
                 Console.ResetColor();
             }
+            Console.ResetColor();
         }
 
         // Meow skill
@@ -99,6 +104,9 @@ namespace CatGame
 
                 EnemyTurn(player, enemy);
             }
+            Console.ResetColor();
+            Console.WriteLine("\nPress any key...");
+            Console.ReadKey();
         }
 
         // Show player health
@@ -110,6 +118,8 @@ namespace CatGame
             Console.WriteLine($"Attack: {player.AttackPower}");
             Console.WriteLine($"Speed: {player.Speed}");
             Console.ResetColor();
+            Console.WriteLine("\nPress any key...");
+            Console.ReadKey();
         }
 
         // Check if battle is over
@@ -121,13 +131,24 @@ namespace CatGame
         // Full battle loop
         public static void StartBattle(Cat player, Enemy enemy)
         {
+            Console.Clear();
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\nA wild {enemy.Name} appears!");
             Console.ResetColor();
 
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+
             while (!IsBattleOver(player, enemy))
             {
-                Console.WriteLine("\n=== Fight Menu ===");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("=== BATTLE ===");
+                Console.WriteLine($"{enemy.Name} HP: {enemy.Health}");
+                Console.ResetColor();
+
+                Console.WriteLine("\n=== Your Action ===");
                 Console.WriteLine("[1] Attack Monster");
                 Console.WriteLine("[2] Run Away");
                 Console.WriteLine("[3] Meow To Scare Monster");
@@ -159,6 +180,7 @@ namespace CatGame
                         break;
                 }
             }
+            Console.Clear();
 
             if (player.Health > 0)
             {

@@ -185,7 +185,7 @@
 
                         Console.Clear();
 
-                        Console.WriteLine("=== Rest Menu ===\n");
+                        Console.WriteLine("=== Rest ===\n");
                         Console.WriteLine("The cat rests peacefully and recovers health.");
                         break;
 
