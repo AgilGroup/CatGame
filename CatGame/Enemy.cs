@@ -21,6 +21,16 @@ namespace CatGame
             Speed = speed;
         }
 
+         // Preset monster list
+        public static List<Enemy> PresetMonsters = new List<Enemy>()
+        {
+            new Enemy("Rat", 20, 5, 10),
+            new Enemy("Goblin", 35, 8, 7),
+            new Enemy("Wolf", 50, 12, 15),
+            new Enemy("Skeleton", 40, 10, 5),
+            new Enemy("Dragon", 150, 25, 20)
+        };
+
 
         public void Attack(Cat target)
         {

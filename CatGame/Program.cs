@@ -104,6 +104,8 @@
                     break;
             }
 
+            Cat player = new Cat((CatBreed)(breedChoice - 1), catName);
+
             Console.WriteLine($"\nWelcome {catName} the {breed}!");
             Console.WriteLine("\nPress any key to start the adventure...");
             Console.ReadKey();
@@ -117,7 +119,7 @@
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("=== Main Game Menu ===\n");
                 Console.ResetColor();
-
+                
                 Console.WriteLine($"Cat: {catName} ({breed})\n");
 
                 Console.WriteLine("[1] Walk Through The Forest");
@@ -145,7 +147,7 @@
                         Console.WriteLine("The cat walks deeper into the forest...\n");
 
                         Random random = new Random();
-                        int eventNumber = random.Next(1, 5);
+                        int eventNumber = random.Next(1, 2);
 
                         switch (eventNumber)
                         {
@@ -154,11 +156,11 @@
                                 Console.WriteLine("A wild monster appears!");
                                 Console.ResetColor();
 
-                                Console.WriteLine("\n=== Fight Menu ===");
-                                Console.WriteLine("[1] Attack Monster");
-                                Console.WriteLine("[2] Run Away");
-                                Console.WriteLine("[3] Meow To Scare Monster");
-                                Console.WriteLine("[4] Show Health");
+                                // Pick a random monster
+                                Random randomEnemyNum = new Random();
+                                Enemy enemy = Enemy.PresetMonsters[randomEnemyNum.Next(Enemy.PresetMonsters.Count)];
+
+                                FightService.StartBattle(player, enemy);
 
                                 break;
 
@@ -189,12 +191,7 @@
 
                         Console.Clear();
 
-                        Console.WriteLine("=== Cat Status ===\n");
-                        Console.WriteLine($"Name: {catName}");
-                        Console.WriteLine($"Breed: {breed}");
-                        Console.WriteLine("Health: 100");
-                        Console.WriteLine("Attack: 15");
-                        Console.WriteLine("Luck: 12");
+                        player.ShowStats();
 
                         break;
 
