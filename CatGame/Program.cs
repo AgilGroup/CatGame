@@ -194,7 +194,7 @@
                         Console.WriteLine($"Breed: {breed}");
                         Console.WriteLine("Health: 100");
                         Console.WriteLine("Attack: 15");
-                        Console.WriteLine("Luck: 10");
+                        Console.WriteLine("Luck: 12");
 
                         break;
 
