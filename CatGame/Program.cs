@@ -2,27 +2,33 @@
 {
     internal class Program
     {
+        private static ConsoleColor[] TextColor =
+        {
+            ConsoleColor.DarkMagenta, ConsoleColor.Blue, ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.DarkYellow, ConsoleColor.Red
+        };
         static void Main(string[] args)
         {
             bool running = true;
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("=== Forest Cat Escape ===\n");
-            Console.ResetColor();
+            Console.WriteLine("░█▀▀░█▀█░█▀▄░█▀▀░█▀▀░▀█▀░░░█▀▀░█▀█░▀█▀░░░█▀▀░█▀▀░█▀▀░█▀█░█▀█░█▀▀\r\n░█▀▀░█░█░█▀▄░█▀▀░▀▀█░░█░░░░█░░░█▀█░░█░░░░█▀▀░▀▀█░█░░░█▀█░█▀▀░█▀▀\r\n░▀░░░▀▀▀░▀░▀░▀▀▀░▀▀▀░░▀░░░░▀▀▀░▀░▀░░▀░░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀");
+            Console.ForegroundColor = TextColor[6];
             Console.WriteLine("                   _                               ");
             Console.WriteLine("                 _(_)_                        ");
             Console.WriteLine("   @@@@         (_)@(_)  vVVVv    _     @@@@         ");
             Console.WriteLine("  @@()@@  wWWWw   (_)\\   (___)  _(_)_  @@()@@        ");
             Console.WriteLine("   @@@@   (___)     `|/    Y   (_)@(_)  @@@@           ");
-            Console.WriteLine("    /       Y       \\|/    |     /(_)    \\|              ");
-            Console.WriteLine("  \\ |     \\ |/       | / \\ | /  \\|/       |/          ");
-            Console.WriteLine("  \\\\|//   \\\\|///  \\\\\\|//\\\\\\|/// \\|///  \\\\\\|//  ");
+            Console.ForegroundColor = TextColor[3];
+            Console.WriteLine(" /\\_/\\    /       Y       \\|/    |     /(_)    \\|    /\\_/\\");
+            Console.WriteLine("( o.o )  \\ |     \\ |/       | / \\ | /  \\|/       |/ ( o.o )");
+            Console.WriteLine(" > ^ <  \\\\|//   \\\\|///  \\\\\\|//\\\\\\|/// \\|///  \\\\\\|//  > ^ <   ");
             Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
-
+            Console.ResetColor();
             Console.WriteLine("A brave little cat is trapped inside a dark forest...");
             Console.WriteLine("Fight monsters, explore the woods, and survive!");
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+
 
             // ---------------- START MENU ----------------
 
@@ -152,10 +158,6 @@
                         switch (eventNumber)
                         {
                             case 1:
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("A wild monster appears!");
-                                Console.ResetColor();
-
                                 // Pick a random monster
                                 Random randomEnemyNum = new Random();
                                 Enemy enemy = Enemy.PresetMonsters[randomEnemyNum.Next(Enemy.PresetMonsters.Count)];
@@ -183,7 +185,7 @@
 
                         Console.Clear();
 
-                        Console.WriteLine("=== Rest Menu ===\n");
+                        Console.WriteLine("=== Rest ===\n");
                         Console.WriteLine("The cat rests peacefully and recovers health.");
                         break;
 
