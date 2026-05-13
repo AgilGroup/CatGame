@@ -191,12 +191,7 @@
 
                         Console.Clear();
 
-                        Console.WriteLine("=== Cat Status ===\n");
-                        Console.WriteLine($"Name: {catName}");
-                        Console.WriteLine($"Breed: {breed}");
-                        Console.WriteLine("Health: 100");
-                        Console.WriteLine("Attack: 15");
-                        Console.WriteLine("Luck: 10");
+                        player.ShowStats();
 
                         break;
 
