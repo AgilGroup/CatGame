@@ -30,6 +30,7 @@ namespace CatGame
         {
             Breed = breed;
             Name= name;
+           
             AssignStats();
         }
 
@@ -40,24 +41,28 @@ namespace CatGame
             {
                 case CatBreed.Forest:
                     MaxHealth = 100;
+                    Health = MaxHealth;
                     AttackPower = 15;
                     Speed = 10;
                     CriticalHitChance = 0.1;
                     break;
                 case CatBreed.Tiger:
                     MaxHealth = 100;
+                    Health = MaxHealth;
                     AttackPower = 20;
                     Speed = 8;
                     CriticalHitChance = 0.05;
                     break;
                 case CatBreed.Persian:
                     MaxHealth = 120;
+                    Health = MaxHealth;
                     AttackPower = 12;
                     Speed = 12;
                     CriticalHitChance = 0.05;
                     break;
                 case CatBreed.Black:
                     MaxHealth = 90;
+                    Health = MaxHealth;
                     AttackPower = 12;
                     Speed = 14;
                     CriticalHitChance = 0.25;
