@@ -24,7 +24,7 @@
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
 
-            // ---------------- START MENU ----------------
+            // ---------------- START MENU ---------------- 
 
             Console.Clear();
 
@@ -141,50 +141,52 @@
                 switch (choice)
                 {
                     case 1:
+                        WalkEventService.StartWalkEvent(player);
+                        //Console.Clear();
 
-                        Console.Clear();
+                        ////Console.WriteLine("The cat walks deeper into the forest...\n");
 
-                        Console.WriteLine("The cat walks deeper into the forest...\n");
+                        //Random random = new Random();
+                        //int eventNumber = random.Next(1, 2);
 
-                        Random random = new Random();
-                        int eventNumber = random.Next(1, 2);
+                        //switch (eventNumber)
+                        //{
+                        //    case 1:
+                        //        Console.ForegroundColor = ConsoleColor.Red;
+                        //        Console.WriteLine("A wild monster appears!");
+                        //        Console.ResetColor();
 
-                        switch (eventNumber)
-                        {
-                            case 1:
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("A wild monster appears!");
-                                Console.ResetColor();
+                        //        // Pick a random monster
+                        //        Random randomEnemyNum = new Random();
+                        //        Enemy enemy = Enemy.PresetMonsters[randomEnemyNum.Next(Enemy.PresetMonsters.Count)];
 
-                                // Pick a random monster
-                                Random randomEnemyNum = new Random();
-                                Enemy enemy = Enemy.PresetMonsters[randomEnemyNum.Next(Enemy.PresetMonsters.Count)];
+                        //        FightService.StartBattle(player, enemy);
 
-                                FightService.StartBattle(player, enemy);
+                        //        break;
 
-                                break;
+                        //    case 2:
+                        //        Console.WriteLine("The cat finds food and restores energy.");
+                        //        break;
 
-                            case 2:
-                                Console.WriteLine("The cat finds food and restores energy.");
-                                break;
+                        //    case 3:
+                        //        player.ShowStats();
+                        //        Console.WriteLine("The cat finds a safe resting place.");
+                        //        break;
 
-                            case 3:
-                                Console.WriteLine("The cat finds a safe resting place.");
-                                break;
-
-                            case 4:
-                                Console.WriteLine("Nothing happens... The forest is quiet.");
-                                break;
-                        }
+                        //    case 4:
+                        //        Console.WriteLine("Nothing happens... The forest is quiet.");
+                        //        break;
+                        //}
 
                         break;
 
                     case 2:
 
-                        Console.Clear();
+                        //Console.Clear();
+                        //Console.WriteLine("=== Rest Menu ===\n");
+                        //Console.WriteLine("The cat rests peacefully and recovers health.");
 
-                        Console.WriteLine("=== Rest Menu ===\n");
-                        Console.WriteLine("The cat rests peacefully and recovers health.");
+                        RestService.ShowRestMenu(player);
                         break;
 
                     case 3:
