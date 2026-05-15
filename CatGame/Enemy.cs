@@ -16,7 +16,8 @@ namespace CatGame
         public Enemy(string name, int health, int attackPower, int speed)
         {
             Name = name;
-            Health = health;
+            MaxHealth = health;
+            Health = MaxHealth;
             AttackPower = attackPower;
             Speed = speed;
         }
@@ -28,7 +29,7 @@ namespace CatGame
             new Enemy("Goblin", 35, 8, 7),
             new Enemy("Wolf", 50, 12, 15),
             new Enemy("Skeleton", 40, 10, 5),
-            new Enemy("Dragon", 150, 25, 20)
+            new Enemy("Dragon", 150, 16, 20)
         };
 
 
