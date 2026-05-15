@@ -147,13 +147,13 @@
                 switch (choice)
                 {
                     case 1:
+                        WalkEventService.StartWalkEvent(player);
+                        //Console.Clear();
 
-                        Console.Clear();
+                        ////Console.WriteLine("The cat walks deeper into the forest...\n");
 
-                        Console.WriteLine("The cat walks deeper into the forest...\n");
-
-                        Random random = new Random();
-                        int eventNumber = random.Next(1, 2);
+                        //Random random = new Random();
+                        //int eventNumber = random.Next(1, 2);
 
                         switch (eventNumber)
                         {
@@ -162,28 +162,31 @@
                                 Random randomEnemyNum = new Random();
                                 Enemy enemy = Enemy.PresetMonsters[randomEnemyNum.Next(Enemy.PresetMonsters.Count)];
 
-                                FightService.StartBattle(player, enemy);
+                        //        FightService.StartBattle(player, enemy);
 
-                                break;
+                        //        break;
 
-                            case 2:
-                                Console.WriteLine("The cat finds food and restores energy.");
-                                break;
+                        //    case 2:
+                        //        Console.WriteLine("The cat finds food and restores energy.");
+                        //        break;
 
-                            case 3:
-                                Console.WriteLine("The cat finds a safe resting place.");
-                                break;
+                        //    case 3:
+                        //        player.ShowStats();
+                        //        Console.WriteLine("The cat finds a safe resting place.");
+                        //        break;
 
-                            case 4:
-                                Console.WriteLine("Nothing happens... The forest is quiet.");
-                                break;
-                        }
+                        //    case 4:
+                        //        Console.WriteLine("Nothing happens... The forest is quiet.");
+                        //        break;
+                        //}
 
                         break;
 
                     case 2:
 
-                        Console.Clear();
+                        //Console.Clear();
+                        //Console.WriteLine("=== Rest Menu ===\n");
+                        //Console.WriteLine("The cat rests peacefully and recovers health.");
 
                         Console.WriteLine("=== Rest ===\n");
                         Console.WriteLine("The cat rests peacefully and recovers health.");
