@@ -1,52 +1,52 @@
-﻿//using System;
+﻿using System;
 
-//namespace CatGame
-//{
-//    internal class RestService
-//    {
-//        public static void ShowRestMenu(Cat player)
-//        {
-//            bool resting = true;
+namespace CatGame
+{
+    internal class RestService
+    {
+        public static void ShowRestMenu(Cat player)
+        {
+            bool resting = true;
 
-//            while (resting)
-//            {
-//                Console.Clear();
+            while (resting)
+            {
+                Console.Clear();
 
-//                Console.ForegroundColor = ConsoleColor.Cyan;
-//                Console.WriteLine("=== Rest Menu ===\n");
-//                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("=== Rest Menu ===\n");
+                Console.ResetColor();
 
-//                Console.WriteLine("[1] Rest and recover health");
-//                Console.WriteLine("[2] Return to main menu");
+                Console.WriteLine("[1] Rest and recover health");
+                Console.WriteLine("[2] Return to main menu");
 
-//                Console.Write("\nChoose an option: ");
-//                string choice = Console.ReadLine();
+                Console.Write("\nChoose an option: ");
+                string choice = Console.ReadLine();
 
-//                switch (choice)
-//                {
-//                    case "1":
-//                        Console.WriteLine($"\n{player.Name} rests peacefully...");
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine($"\n{player.Name} rests peacefully...");
 
-//                        player.Heal();
+                        player.Heal();
 
-//                        Console.WriteLine($"\nCurrent HP: {player.Health}/{player.MaxHealth}");
+                        Console.WriteLine($"\nCurrent HP: {player.Health}/{player.MaxHealth}");
 
-//                        Console.WriteLine("\nPress any key to continue...");
-//                        Console.ReadKey();
-//                        break;
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadKey();
+                        break;
 
-//                    case "2":
-//                        resting = false;
-//                        break;
+                    case "2":
+                        resting = false;
+                        break;
 
-//                    default:
-//                        Console.WriteLine("Invalid option.");
+                    default:
+                        Console.WriteLine("Invalid option.");
 
-//                        Console.WriteLine("\nPress any key to continue...");
-//                        Console.ReadKey();
-//                        break;
-//                }
-//            }
-//        }
-//    }
-//}
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+        }
+    }
+}
