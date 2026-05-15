@@ -120,11 +120,15 @@ namespace CatGame
         }
         public void ShowStats()
         {
-            Console.WriteLine($"Name: {Name}");
-            Console.WriteLine($"Health: {Health}/{MaxHealth}");
-            Console.WriteLine($"Attack Power: {AttackPower}");
-            Console.WriteLine($"Speed: {Speed}");
-            Console.WriteLine($"Critical Hit Chance: {CriticalHitChance * 100}%");
+            Console.WriteLine("+================================+");
+            Console.WriteLine("|           CAT STATUS           |");
+            Console.WriteLine("+--------------------------------+");
+            Console.WriteLine($"|  Name: {Name}");
+            Console.WriteLine($"|  Health: {Health}/{MaxHealth}");
+            Console.WriteLine($"|  Attack Power: {AttackPower}");
+            Console.WriteLine($"|  Speed: {Speed}");
+            Console.WriteLine($"|  Critical Hit Chance: {CriticalHitChance * 100}%");
+            Console.WriteLine("+================================+");
         }
 
 
