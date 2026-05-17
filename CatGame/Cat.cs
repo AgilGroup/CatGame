@@ -21,7 +21,7 @@ namespace CatGame
         public int MaxHealth { get; set; }
         public int AttackPower { get; set; }
         public int Speed { get; set; }
-        public double CriticalHitChance { get; set; }
+        
 
        
 
@@ -44,28 +44,28 @@ namespace CatGame
                     Health = MaxHealth;
                     AttackPower = 15;
                     Speed = 10;
-                    CriticalHitChance = 0.1;
+                    
                     break;
                 case CatBreed.Tiger:
                     MaxHealth = 100;
                     Health = MaxHealth;
                     AttackPower = 20;
                     Speed = 8;
-                    CriticalHitChance = 0.05;
+                    
                     break;
                 case CatBreed.Persian:
                     MaxHealth = 120;
                     Health = MaxHealth;
                     AttackPower = 12;
                     Speed = 12;
-                    CriticalHitChance = 0.05;
+                    
                     break;
                 case CatBreed.Black:
                     MaxHealth = 90;
                     Health = MaxHealth;
                     AttackPower = 12;
                     Speed = 14;
-                    CriticalHitChance = 0.25;
+                    
                     break;
             }
         }
@@ -85,9 +85,9 @@ namespace CatGame
         public void Heal()
         {
             Random r = new Random();
-            int healAmount = r.Next(5, 16); 
+            int healAmount = r.Next(40, 60); 
 
-            if (healAmount < 10)
+            if (healAmount < 50)
             {
                 Console.WriteLine($"{Name} tries to heal but only recovers {healAmount} health.");
                 Health += healAmount;
@@ -127,7 +127,6 @@ namespace CatGame
             Console.WriteLine($"|  Health: {Health}/{MaxHealth}");
             Console.WriteLine($"|  Attack Power: {AttackPower}");
             Console.WriteLine($"|  Speed: {Speed}");
-            Console.WriteLine($"|  Critical Hit Chance: {CriticalHitChance * 100}%");
             Console.WriteLine("+================================+");
         }
 
